@@ -12,7 +12,7 @@ We will be using Slack to post news and links relevant to the event: you should 
 ![Schedule](https://user-images.githubusercontent.com/4578156/125287535-55532080-e31d-11eb-9d1a-e301964dafde.png)
 
 
-## Obtaining a copy of the repository
+## Obtaining a copy of this repository
 
 ### On your own computer
 
