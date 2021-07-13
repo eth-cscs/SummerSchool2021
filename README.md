@@ -35,7 +35,7 @@ cd $SCRATCH
 # it is a good policy to put it in a personal path
 mkdir johnsmith
 cd johnsmith
-git clone https://github.com/eth-cscs/SummerSchool2019.git
+git clone https://github.com/eth-cscs/SummerSchool2021.git
 ```
 
 ## Updating the repository
