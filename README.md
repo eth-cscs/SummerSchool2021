@@ -1,3 +1,4 @@
+
 # CSCS-USI HPC Summer School 2021
 
 This repository contains the materials used in the Summer School, including source code, lecture notes and slides.
@@ -7,9 +8,11 @@ Material will be added to the repository throughout the course, which will requi
 
 We will be using Slack to post news and links relevant to the event: you should have received an invitation to join the Summer School Slack workspace.
 
-## Schedule
+## Schedule (updated 14.07.2021)
 
-![Schedule](https://user-images.githubusercontent.com/4578156/125287535-55532080-e31d-11eb-9d1a-e301964dafde.png)
+[Full PDF](https://github.com/eth-cscs/SummerSchool2021/files/6815267/2021.-.Effective.High-Performance.Computing.Data.Analytics.Summer.School.1.pdf) 
+
+![Schedule](https://user-images.githubusercontent.com/4578156/125604206-6dca360a-0417-4f14-9427-e9c46991ad50.png)
 
 
 ## Obtaining a copy of this repository
@@ -49,3 +52,7 @@ git pull origin master
 
 There is a posibility that you might have a conflict between your working version of the repository and the origin.
 In this case you can ask one of the assistants for help.
+
+# How to access Piz Daint
+
+This will be covered in the lectures and you can find more details in the [CSCS User Portal](https://user.cscs.ch/access/running/piz_daint/).
