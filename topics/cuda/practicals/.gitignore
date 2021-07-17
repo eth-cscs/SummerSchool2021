@@ -1,0 +1,64 @@
+# vim temporary files
+*.swp
+*.swo
+*.swn
+*.swq
+
+tmp
+*.cray
+*.pgi
+*.intel
+*.gnu
+
+# executables
+*.out
+*.exe
+main
+managed
+explicit
+bandwidth
+string_reverse
+dot
+blur_twice
+blur
+blur_twice_omp
+*.cuda
+*.omp
+axpy/axpy
+axpy/axpy_omp
+axpy/newton
+hist
+hello
+diffusion/diffusion2d
+diffusion/diffusion2d_mpi
+async/memcopy[123]
+
+output.png
+
+# visualization output files
+*.bin
+*.bov
+
+# profiling outpu
+*.nvvp
+
+# compilation files
+*.o
+*.a
+*.lst
+*.cub
+*.ptx
+*.MOD
+*.mod
+
+# latex cruft
+*.aux
+*.log
+*.pdf
+*.vrb
+*.nav
+*.snm
+*.toc
+
+node_raw.tex
+node_managed_raw.tex
