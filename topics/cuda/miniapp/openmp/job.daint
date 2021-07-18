@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#SBATCH --job-name="summer-school-serial"
+#SBATCH --nodes=1
+#SBATCH --output=job%j.out
+#SBATCH --reservation=course
+#SBATCH --time=00:02:00
+#SBATCH --constraint=gpu
+
+srun ./main 256 256 200 0.01 yes
+
