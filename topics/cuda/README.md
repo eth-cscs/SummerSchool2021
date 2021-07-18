@@ -50,7 +50,7 @@ Understand implementing a real-world numerical simulation using a toy mini-app. 
 
 `cuda2d.pdf`
 
-Coding exercizes in the `miniapp` folder. Contains a working `OpenMP` implementation as well.
+Coding exercizes in the top level `/miniapp/cuda` folder. Contains a working `OpenMP` implementation as well in the `miniapp/openmp` folder.
 
 #### Advanced GPU Concepts
 
