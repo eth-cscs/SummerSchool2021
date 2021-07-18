@@ -20,6 +20,12 @@ Learn the programming model, common GPU libraries, understand GPU memory managem
 
 Exercises under `practicals/api` folder.
 
+#### CUDA Kernels
+
+Getting started with writing custom GPU kernels. 
+
+`kernels.pdf`
+
 ### Day 2
 
 #### Kernels & Threads
