@@ -17,12 +17,15 @@ void benchmark_gpu(thrust::host_vector<double> values_host)
     auto start = get_time();
 
     // TODO: copy values to device
+
     auto h2d_time = get_time() - start;
 
     // TODO: sort values on device
+
     auto sort_time = get_time() - h2d_time;
 
     // TODO: copy result back to host
+
     auto time_taken = get_time() - start;
 
     std::cout << "gpu performance including transfers: " << n / time_taken / 1e6 << " million keys/s\n";
