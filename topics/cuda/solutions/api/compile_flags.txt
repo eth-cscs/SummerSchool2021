@@ -1,0 +1,6 @@
+-xcuda
+-nocudalib
+--cuda-gpu-arch=sm_60
+--std=c++11
+-I/users/bcumming/cuda20/cuda/solutions/include
+$CRAY_CUDATOOLKIT_INCLUDE_OPTS
