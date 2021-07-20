@@ -4,16 +4,15 @@
 
 #include "util.hpp"
 
-// Only runs with n <= 1024
 __global__
 void axpy(int n, double alpha, const double* x, double* y) {
-    int i = threadIdx.x;
+    int i = threadIdx.x + blockIdx.x*blockDim.x;
     if (i<n) {
         y[i] = y[i] + alpha*x[i];
     }
 }
 
-// Extra: Dealing with arrays larger than 1024.
+// Extra: Dealing with arrays larger than 1024 using a single block.
 // Comment previous definition to use this.
 /*
 __global__
@@ -31,6 +30,7 @@ void axpy(int n, double alpha, const double* x, double* y)
     }
 }
 */
+
 int main(int argc, char** argv) {
     size_t pow = read_arg(argc, argv, 1, 16);
     size_t n = 1 << pow;
@@ -54,19 +54,15 @@ int main(int argc, char** argv) {
     auto time_H2D = get_time() - start;
 
     // calculate grid dimensions
-    // IGNORE for first exercise
+    int num_threads = 128;
+    int num_blocks = (n-1)/num_threads + 1;
 
     // synchronize the host and device so that the timings are accurate
     cudaDeviceSynchronize();
 
     start = get_time();
 
-	auto num_threads = n;
-	if (n > 1024)
-	{
-		num_threads = 1024; // a single block only supports 1024 threads
-	}
-    axpy<<<1, num_threads>>>(n, 2.0, x_device, y_device);
+    axpy<<<num_blocks, num_threads>>>(n, 2, x_device, y_device);
 
     cudaDeviceSynchronize();
     auto time_axpy = get_time() - start;
