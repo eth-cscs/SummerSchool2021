@@ -6,7 +6,7 @@ Setting up the environment for building the miniapp:
 module load daint-gpu
 module swap PrgEnv-cray PrgEnv-gnu
 module load gcc/9.3.0 cudatoolkit
-module load PyExtensions/python3-CrayGNU-20.11
+module load PyExtensions
 make all
 
 # to run
