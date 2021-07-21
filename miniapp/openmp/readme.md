@@ -16,8 +16,8 @@ salloc -Cgpu --reservation=course
 srun -Cgpu ./main 128 128 128 0.01
 
 # to plot
-module load PyExtensions/2.7-CrayGNU-17.08
-python2 ../plotting.py
+module load PyExtensions
+python3 plotting.py -s
 ```
 
 Benchmark results on Piz Daint multicore partition with `srun main 256 256 100 0.01`
