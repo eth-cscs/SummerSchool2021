@@ -146,6 +146,21 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{Format of directives}
+  \begin{Cpplisting}{OpenMP looks like this ...}
+    #pragma omp parallel for
+    for (auto i = 0; i < m; ++i) {
+        // work on A[p] array
+    }
+  \end{Cpplisting}
+  \begin{Cpplisting}{.. while OpenACC looks like this ...}
+    #pragma acc parallel loop
+    for (auto i = 0; i < m; ++i) {
+        // work on A[p] array
+    }
+  \end{Cpplisting}
+\end{frame}
+
 \begin{frame}{Programming model}
   \begin{itemize}
   \item Host-directed execution
