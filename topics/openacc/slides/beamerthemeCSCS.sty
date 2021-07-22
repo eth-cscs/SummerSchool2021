@@ -1,0 +1,424 @@
+% \LaTeX beamer theme with CSCS style layout
+% author: Maxime Martinasso <maxime.martinasso@cscs.ch>
+% April, 21st, 2015
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeCSCS}[2015/04/21 CSCS beamer theme]
+\RequirePackage[scaled=.85]{helvet}
+\RequirePackage{changepage}
+\RequirePackage{tcolorbox}
+\RequirePackage{listings}
+\RequirePackage{MnSymbol}
+\RequirePackage{xhfill}
+
+\tcbuselibrary{listings,skins}
+\usefonttheme[onlymath]{serif}
+
+% Declare some length variables
+\newlength\@headerdist
+\newlength\@footlineraise
+\newlength\@titleindent
+
+\setlength{\@headerdist}{.2\baselineskip}
+\setlength\@footlineraise{7pt}
+\setlength\@titleindent{-1em}
+
+\mode<presentation>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CSCS color definition
+\definecolor{cscsred}{RGB}{172,27,38}
+\definecolor{cscsgrey}{RGB}{64,64,64}
+\definecolor{cscsgreen}{RGB}{114,121,28}
+\definecolor{cscsblue}{RGB}{0,122,150}
+\definecolor{cscsbrown}{RGB}{151,72,6}
+\definecolor{cscspurple}{RGB}{128,0,128}
+\definecolor{cscsyellow}{RGB}{167,135,32}
+\definecolor{cscsblack}{RGB}{0,0,0}
+\definecolor{cscswhite}{RGB}{255,255,255}
+
+% no navigation
+\setbeamertemplate{navigation symbols}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Block definitions
+
+\tcbset{arc=2pt,boxrule=0.2mm}
+
+\newenvironment<>{black0block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=black,colbacktitle=white,coltitle=black,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{black1block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=black,coltitle=white,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{black2block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=black,colbacktitle=white!75!black,coltitle=black,title=#1]}{\end{tcolorbox}}
+
+\newenvironment<>{green0block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsgreen,colbacktitle=white,coltitle=black,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{green1block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsgreen,coltitle=white,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{green2block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsgreen,colbacktitle=cscsgreen!50!white,coltitle=black,title=#1]}{\end{tcolorbox}}
+
+\newenvironment<>{blue0block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsblue,colbacktitle=white,coltitle=black,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{blue1block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsblue,coltitle=white,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{blue2block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsblue,colbacktitle=cscsblue!50!white,coltitle=black,title=#1]}{\end{tcolorbox}}
+
+\newenvironment<>{brown0block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsbrown,colbacktitle=white,coltitle=black,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{brown1block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsbrown,coltitle=white,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{brown2block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsbrown,colbacktitle=cscsbrown!50!white,coltitle=black,title=#1]}{\end{tcolorbox}}
+
+\newenvironment<>{purple0block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscspurple,colbacktitle=white,coltitle=black,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{purple1block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscspurple,coltitle=white,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{purple2block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscspurple,colbacktitle=cscspurple!50!white,coltitle=black,title=#1]}{\end{tcolorbox}}
+
+\newenvironment<>{yellow0block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsyellow,colbacktitle=white,coltitle=black,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{yellow1block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsyellow,coltitle=white,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{yellow2block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsyellow,colbacktitle=cscsyellow!50!white,coltitle=black,title=#1]}{\end{tcolorbox}}
+
+\newenvironment<>{red0block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsred,colbacktitle=white,coltitle=black,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{red1block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsred,coltitle=white,title=#1]}{\end{tcolorbox}}
+\newenvironment<>{red2block}[1]{%
+\setbeamercolor{block title}{}%
+\begin{tcolorbox}[colback=white,colframe=cscsred,colbacktitle=cscsred!50!white,coltitle=black,title=#1]}{\end{tcolorbox}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Frame title
+\setbeamertemplate{frametitle}
+{
+  \ifbeamer@plainframe
+  \else
+    \vspace{.35cm}
+    \hspace\@titleindent\textbf{\color{cscsgrey}\insertframetitle}\par
+    \hspace\@titleindent\small\color{cscsgrey}\insertframesubtitle
+    \vspace{-.2cm}
+  \fi
+}
+
+% title page with CSCS image
+\setbeamertemplate{title page}{
+  \vspace{-\baselineskip}
+  \begin{beamercolorbox}[wd=\paperwidth]{decoration}
+    \vspace{3\baselineskip}
+    \includegraphics[width=\paperwidth,height=.33\paperheight]{\picturetitle}
+    \color{cscsred}\raisebox{1.3em}{\rule\paperwidth{0.4mm}}
+  \end{beamercolorbox}
+
+  \vspace{-.5\baselineskip}
+  \begin{adjustwidth}{\@titleindent}{\@titleindent}
+    \textbf{\large{\color{cscsgrey}\inserttitle}}\\[2mm]
+    {
+      \normalsize\color{gray}
+      \insertsubtitle \\
+      \insertauthor \\
+      \insertdate \\
+    }
+  \end{adjustwidth}
+}
+
+\newcommand\cscsheadline{
+  \hbox{
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=36pt,left]{headline}
+      \hspace{12pt}\includegraphics[scale=.25]{cscs_images/cscs_logo_fullname.pdf}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=36pt,right]{headline}
+      \includegraphics[scale=.29]{cscs_images/eth_logo.pdf}\hspace{18pt}
+    \end{beamercolorbox}
+  }
+}
+
+\newcommand\cscsfootline{
+  \hbox{
+    \begin{beamercolorbox}[wd=.15\paperwidth,ht=1.1em,dp=\@footlineraise,center]{footline}
+      \includegraphics[scale=.14]{cscs_images/cscs_logo.pdf}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=.70\paperwidth,ht=1.1em,dp=\@footlineraise,center]{footline}
+      \footlinetext\hspace{1ex}$\mid$\hspace{1ex}\insertframenumber
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=.15\paperwidth,ht=1.1em,dp=\@footlineraise,center]{footline}
+      \includegraphics[scale=.22]{cscs_images/eth_logo.pdf}
+    \end{beamercolorbox}
+  }
+}
+
+\newcommand{\cscstitle}{
+  \setbeamertemplate{footline}{}
+  \setbeamertemplate{headline}{\cscsheadline}
+  \frame{\titlepage}
+  \setbeamertemplate{headline}{}
+  \setbeamertemplate{footline}{\cscsfootline}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Part title frame
+\setbeamertemplate{part page}{
+  \bfseries
+  \begin{adjustwidth}{\@titleindent}{\@titleindent}
+    \usebeamerfont{part title}\color{cscsgrey}\insertpart
+  \end{adjustwidth}
+  \vspace{-7pt}
+  \begin{beamercolorbox}[wd=\paperwidth]{line}
+    \color{cscsred}\rule\paperwidth{0.4mm}
+  \end{beamercolorbox}
+}
+
+\AtBeginPart{
+  {
+    \setbeamertemplate{footline}{}
+    \setbeamertemplate{headline}{\cscsheadline}
+    \frame{\partpage}
+  }
+}
+
+%% DEPRECATED
+\newcommand{\cscschapter}[1]{
+\begin{frame}[plain]
+\begin{picture}(0,0)
+  \put(-16,71){\includegraphics[scale=.25]{cscs_images/cscs_logo_fullname.pdf}}
+  \put(285,83){\includegraphics[scale=.29]{cscs_images/eth_logo.pdf}}
+\end{picture}
+\begin{picture}(0,0)
+   \put(-18,-22){\usebeamerfont{part title}\color{cscsgrey}\textbf{#1}}
+   \put(-31,-28){\color{cscsred}\rule{\paperwidth}{0.4mm}}
+\end{picture}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of content frame
+\setbeamercolor{section in toc}{fg=black}
+\setbeamertemplate{section in toc}{
+  \textcolor{cscsred}{$\filledsquare$}\hspace{2mm}\inserttocsection\vspace{1em}\par
+}
+
+\setbeamertemplate{subsection in toc}{
+  \leavevmode\leftskip=1em
+  \textcolor{cscsgrey}{--}\hspace{2mm}\inserttocsubsection\par
+}
+
+\setbeamertemplate{subsubsection in toc}{
+  \leavevmode\leftskip=3em
+  \textcolor{cscsgrey}{$\bullet$}\hspace{2mm}\inserttocsubsubsection\par
+}
+
+\newcommand{\cscstableofcontents}[2][]{
+  \begin{frame}{#2}
+    \vspace{-\baselineskip}
+    \begin{columns}[T]
+      \begin{column}{.4\textwidth}
+        \includegraphics[width=\textwidth,height=.7\textheight]{cscs_images/cscs_external_glass.jpeg}
+      \end{column}
+      \begin{column}{.6\textwidth}
+        \vspace{.2cm}
+        \tableofcontents[#1]
+      \end{column}
+    \end{columns}
+  \end{frame}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Footer with configurable text
+\setbeamercolor{footline}{fg=gray}
+
+% There is no need to use \ifbeamer@plainframe, because head/footlines won't be
+% called in plain frames at all
+\setbeamertemplate{footline}{\cscsfootline}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Thank you frame
+\newcommand{\cscsthankyou}[1]{
+  \setbeamertemplate{headline}{\cscsheadline}
+  \setbeamertemplate{footline}{}
+  \begin{frame}[noframenumbering]
+    \begin{beamercolorbox}[wd=\paperwidth]{decoration}
+      \includegraphics[width=\paperwidth,height=.33\paperheight]{cscs_images/cscs_entrance_equations.pdf}
+      \vspace{-\baselineskip}
+      \color{cscsred}\rule\paperwidth{0.4mm}
+    \end{beamercolorbox}
+    \vspace\@headerdist
+    \begin{adjustwidth}{\@titleindent}{\@titleindent}
+      \bfseries
+      \hspace{1em}\large\color{cscsgrey}#1
+    \end{adjustwidth}
+  \end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Change itemize and enumerate
+\setbeamercolor{item}{fg=cscsred}
+\setbeamercolor{itemize subitem}{fg=cscsgrey}
+\setbeamercolor{itemize subsubitem}{fg=cscsgrey}
+
+\setbeamertemplate{itemize item}{$\filledsquare$}
+\setbeamertemplate{itemize subitem}{--}
+\setbeamertemplate{itemize subsubitem}{$\bullet$}
+
+\setbeamercolor{enumerate item}{fg=cscsgrey}
+\setbeamercolor{enumerate subitem}{fg=cscsgrey}
+\setbeamercolor{enumerate subsubitem}{fg=cscsgrey}
+
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
+\setbeamertemplate{enumerate subsubitem}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+\setbeamertemplate{enumerate mini template}{\insertenumlabel}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Code listing
+\newcommand{\lstfont}[1]{\color{#1}\scriptsize\ttfamily}
+\newcommand{\lstinlinefont}[1]{\color{#1}\normalfont\ttfamily}
+\newcommand{\lsttinyfont}[1]{\color{#1}\fontsize{7}{7}\ttfamily}
+
+\newcommand\lstbasiccol{cscsblue!80!cscswhite}
+\newcommand\lstidentifiercol{cscsblack!80!cscswhite}
+\newcommand\lstkeywordcol{cscsred!80!cscswhite}
+\newcommand\lstnumbercol{cscswhite}
+\newcommand\lststringcol{cyan}
+\newcommand\lstcommentcol{cscsyellow!80!cscswhite}
+\newcommand\lstmoredelimcol{cscsblack!60!cscsgreen}
+\newcommand\lstemphcol{cscsgreen}
+
+\newcommand\lstbasicstyle{\lstfont{\lstbasiccol}}
+\newcommand\lstidentifierstyle{\lstfont{\lstidentifiercol}}
+\newcommand\lstkeywordstyle{\lstfont{\lstkeywordcol}}
+\newcommand\lstnumberstyle{\lstfont{\lstnumbercol}}
+\newcommand\lststringstyle{\lstfont{\lststringcol}}
+\newcommand\lstcommentstyle{\lstfont{\lstcommentcol}}
+\newcommand\lstmoredelimstyle{\lstfont{\lstmoredelimcol}}
+\newcommand\lstemphstyle{\lstfont{\lstemphcol}}
+
+\newcommand\lstinbasicstyle{\lstinlinefont{\lstbasiccol}}
+\newcommand\lstinidentifierstyle{\lstinlinefont{\lstidentifiercol}}
+\newcommand\lstinkeywordstyle{\lstinlinefont{\lstkeywordcol}}
+\newcommand\lstinnumberstyle{\lstinlinefont{\lstnumbercol}}
+\newcommand\lstinstringstyle{\lstinlinefont{\lststringcol}}
+\newcommand\lstincommentstyle{\lstinlinefont{\lstcommentcol}}
+\newcommand\lstinmoredelimstyle{\lstinlinefont{\lstmoredelimcol}}
+\newcommand\lstinemphstyle{\lstinlinefont{\lstemphcol}}
+
+\lstdefinestyle{CppStyle}{
+language=[11]C++,
+showstringspaces=false,
+basicstyle=\lstbasicstyle,
+identifierstyle=\lstidentifierstyle,
+keywordstyle=\lstkeywordstyle,
+numberstyle=\lstnumberstyle,
+stringstyle=\lststringstyle,
+commentstyle=\lstcommentstyle,
+moredelim=[is][\lstmoredelimstyle]{@}{@},
+emph={
+        omp, shared, private, reduction, parallel, critical, atomic,
+},
+emphstyle=\lstemphstyle,
+alsoother={\#},
+otherkeywords={\#pragma},
+breaklines=true
+}
+
+\lstdefinestyle{CppStyleInline}{
+language=[11]C++,
+showstringspaces=false,
+basicstyle=\lstinbasicstyle,
+identifierstyle=\lstinidentifierstyle,
+keywordstyle=\lstinkeywordstyle,
+numberstyle=\lstinnumberstyle,
+stringstyle=\lstinstringstyle,
+commentstyle=\lstincommentstyle,
+moredelim=[is][\lstinmoredelimstyle]{@}{@},
+emph={
+        omp, shared, private, reduction, parallel, critical, atomic,
+},
+emphstyle=\lstinemphstyle,
+alsoother={\#},
+otherkeywords={\#pragma},
+breaklines=true
+}
+
+
+\newtcblisting{Cpplisting}[1]{
+colframe=cscsred,
+colbacktitle=cscswhite!50!cscsred,
+coltitle=cscsblack,
+left=.5em, right=.5em, top=-.5em, bottom=-.5em, bottomtitle=0pt, toptitle=0pt,
+listing only,
+listing style=CppStyle,
+adjusted title={#1},
+}
+
+\newcommand{\lstinlineCpp}[1]{\lstinline[style=CppStyleInline]!#1!}
+
+\lstdefinestyle{FortranStyle}{
+language=[90]Fortran,
+showstringspaces=false,
+basicstyle=\lstbasicstyle,
+identifierstyle=\lstidentifierstyle,
+keywordstyle=\lstkeywordstyle,
+numberstyle=\lstnumberstyle,
+stringstyle=\lststringstyle,
+commentstyle=\lstcommentstyle,
+moredelim=[is][\lstmoredelimstyle]{@}{@},
+breaklines=true
+}
+
+\lstdefinestyle{FortranStyleInline}{
+language=[90]Fortran,
+showstringspaces=false,
+basicstyle=\lstinbasicstyle,
+identifierstyle=\lstinidentifierstyle,
+keywordstyle=\lstinkeywordstyle,
+numberstyle=\lstinnumberstyle,
+stringstyle=\lstinstringstyle,
+commentstyle=\lstincommentstyle,
+moredelim=[is][\lstinmoredelimstyle]{@}{@},
+breaklines=true
+}
+
+
+\newtcblisting{Fortranlisting}[1]{
+colframe=cscsred,
+colbacktitle=cscswhite!50!cscsred,
+coltitle=cscsblack,
+left=0pt, right=0pt, top=-6pt, bottom=-6pt, bottomtitle=0pt, toptitle=0pt,
+listing only,
+listing style=FortranStyle,
+adjusted title={#1},
+}
+
+\newcommand{\lstinlineFortran}[1]{\lstinline[style=FortranStyleInline]!#1!}
+\mode<all>
