@@ -1,0 +1,11 @@
+#!/bin/bash -l
+
+#SBATCH --nodes=1
+#SBATCH --time=00:05:00
+#SBATCH --output=job.out
+#SBATCH --constraint=gpu
+#SBATCH --account=csstaff
+##SBATCH --reservation=summer
+
+export OMP_NUM_THREADS=24
+srun --unbuffered ./gemm.openacc 10
