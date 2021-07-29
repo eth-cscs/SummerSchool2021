@@ -25,7 +25,7 @@ class DNN:
 
         # check that the input are correct
         assert type(architecture) == list, 'architecture must be a list of integers (e.g. [64,32,16], each representing a number of neurones in a layer'
-        assert opti in ['adam', 'sigmoid', 'rms_prop'], "invalid optimizer, please chose among ['adam','sigmoid','rms_prop']"
+        assert opti in ['adam', 'sgd', 'rms_prop'], "invalid optimizer, please chose among ['adam','sgd','rms_prop']"
         assert type(data) == Data, 'the data object must come from the "Data" class'
 
         # extract the input shape and output shape from the data
